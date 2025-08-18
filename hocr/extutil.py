@@ -1,6 +1,4 @@
-from typing import Optional
-
-def needs_grayscale_conversion(image) -> bool:
+def needs_grayscale_conversion(image):
     """
     Return True if image should be converted to grayscale, and False otherwise.
     Grayscale images with alpha layers need conversion because the JPEG target
@@ -13,7 +11,7 @@ def needs_grayscale_conversion(image) -> bool:
     return image.mode in ('LA', '1')
 
 
-def needs_rgb_conversion(image) -> bool:
+def needs_rgb_conversion(image):
     """
     Return True if image should be converted to RGB, and False otherwise.
 
@@ -22,7 +20,7 @@ def needs_rgb_conversion(image) -> bool:
     return image.mode not in ('RGB', 'L', 'LA', '1')
 
 
-def normalize_language(language) -> Optional[str]:
+def normalize_language(language):
     """
     Attempt to convert a language tag to a valid country code
     """
@@ -32,7 +30,7 @@ def normalize_language(language) -> Optional[str]:
     if not language:
         return None
 
-    def get_alpha2_code(language: str, part: str) -> Optional[str]:
+    def get_alpha2_code(language, part):
         """
         Try to get a two-character language code from a three character code.
 
